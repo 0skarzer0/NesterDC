@@ -8,8 +8,8 @@ Fork de [pqrs-org/NesterDC](https://github.com/pqrs-org/NesterDC) (emulador de N
 
 | Rama | Contenido |
 |---|---|
-| `main` | NesterDC 7.1 de pqrs-org, tal cual (sin tocar). El `README` original sigue ahí. |
-| `special-edition` | `main` + la carpeta `NesterDCSE/` con los fuentes de NesterDC SE 1.0, y esta documentación. |
+| `main` | Rama principal: NesterDC 7.1 de pqrs-org + la carpeta `NesterDCSE/` con los fuentes de NesterDC Special Edition 1.0, y esta documentación. Desde aquí se prepara el port a NAOMI. |
+| `nester-7.1` | NesterDC 7.1 de pqrs-org, tal cual (commit `edab624`, sin tocar), para comparar. |
 
 ## `NesterDCSE/`
 
@@ -26,7 +26,7 @@ Omitidos por ser binarios: 4 DLL de wxWidgets/MinGW (`NesterDCSEBuilderWx`) y `n
 Comparando `NesterDCSE/new_nesterdcse` con `nester/` del 7.1: de 410 ficheros de código, 250 son idénticos byte a byte, 77 están modificados y 83 son nuevos (más mappers, base de datos `nesdb`, soporte de zip, ratón, explorador de ficheros, visualización). Del 7.1 no están en SE 35 de 356 ficheros de código. Es una evolución del 7.1; no se ha comprobado que sea exactamente esa versión. Para ver los cambios:
 
 ```sh
-git diff --no-index nester NesterDCSE/new_nesterdcse   # o: git diff main:nester special-edition:NesterDCSE/new_nesterdcse
+git diff --no-index nester NesterDCSE/new_nesterdcse   # o: git diff nester-7.1:nester main:NesterDCSE/new_nesterdcse
 ```
 
 ## Qué no está
