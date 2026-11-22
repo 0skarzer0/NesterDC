@@ -1,0 +1,159 @@
+DreamScript API Specification
+by Scherzo
+
+The following class and function definitions are only logical and are not any actually implementation of
+any language.
+
+class DSGlobal
+{
+   enum { DM_320x240, DM_640x480, DM_800x608, DM_256x256, DM_768x480, DM_768x576 };
+   enum { FILE_READ, FILE_WRITE, FILE_BINARY };
+}
+
+// Completed!
+class Image
+{
+	Image();
+
+	String toString();
+	Boolean load(String fn, Number list, Number filtering, Number alpha);
+	Undefined unload();
+
+	Undefined draw(Number x, Number y, Number scale, Number a, Number z);
+	Undefined drawWH(Number x, Number y, Number width, Number height, Number a, Number z);
+	Undefined drawRotated(Number x, Number y, Number scale, Number a, Number z, Number pivotu, Number pivotv, Number angle);
+	String getFilename();
+	Number getWidth();
+	Number getHeight();
+};
+
+class Sprite
+{
+	Sprite();
+	
+	String toString();
+	
+	Boolean load(String filename);
+	Undefined unload();
+	Sprite clone();
+	
+	Undefined animAddImg(String name, Image img, Number framesDuration);
+	Undefined animClear(String name);
+	Undefined animAll();
+	
+	String animation;
+	Image img;
+	Number frame;
+	Number x;
+	Number y;
+	Number z;
+	Number angle;
+	Number scale;
+	Number flippedx; // 1 is normal, -1 is flipped, can be anything in between
+	Number flippedy; // 1 is normal, -1 is flipped, can be anything in between
+	Number speed; // 1 is normal, 0 is stopped
+	Boolean visible;
+};
+
+// Completed!
+class Controller
+{
+	Undefined poll();
+	bool setMode(String strMapName);
+	CString getMode();
+}
+
+class Keyboard
+{
+	Undefined poll();
+
+
+}
+
+// Completed!
+class Mouse
+{
+   Undefined poll();
+   
+   Number dx;
+   Number dy;
+   Number dz;
+   Boolean lbutton;
+   Boolean rbutton;
+   Boolean sbutton;
+}
+
+singleton class Input
+{
+   Boolean rescanDevices();
+   
+   Array<Controller> pad;
+   Array<Keyboard> keyboard;
+   Array<Mouse> mouse;
+}
+
+singleton class Video
+{
+   Number availableMemory();
+   String toString();
+   Undefined frameBegin();
+   Undefined frameFinish();
+   Undefined listBegin(Number list);
+   Undefined listFinish();
+}
+
+singleton class System
+{
+   Number availableMemory();
+}
+
+/*
+Current tested to support MOD, XM, S3M
+*/
+singleton class Music
+{
+   Boolean play(String fn);
+   Boolean stop();
+}
+
+class SoundFX
+{
+   SoundFX();
+   
+   Boolean load(String fn);
+   Boolean unload();
+   Boolean play(Number chan = -1); // between 2 and 63. -1 means next available channel
+   Boolean stop(Number chan = -1); // If -1 specified. Will stop play on lasst channel used
+   static Boolean stopAll();
+}
+
+
+singleton class FileSystem
+{
+   Boolean resetCD();
+   String getCWD();
+   Boolean setCWD(String dir);
+   Array getFileList(String dir);
+   File getFile(String filename);
+}
+
+class File
+{
+   File();
+   
+   Boolean open(String fn, String mode);
+   Undefined close();
+   
+   Boolean seek(Number offset, Number origin);
+   Number tell();
+   
+   Number readInt8();
+   Number readInt16();
+   Number readInt32();
+   Boolean writeInt8(Number n);
+   Boolean writeInt16(Number n);
+   Boolean writeInt32(Number n);
+   String readString();
+   Boolean writeString(String str);
+   String readChar();
+} 

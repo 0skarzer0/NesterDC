@@ -1,0 +1,15 @@
+<nesterdcse_builder
+	roms_path="C:\cygwin\home\Administrator\nesroms\favs"
+	dest_path="datatemp"
+	library_url="http://www.sch3rz0.com/nesterdcse/master_library"
+	stage_path="/home/Administrator/projects/new_nesterdcse/cd"
+	get_carts="true"
+	get_manuals="true"
+	get_faqs="true"
+	get_titles="true"
+	get_screenshots="true"
+	get_boxes="true"
+	get_nsfs="true"
+	get_gamegenie="true"
+	image_format="0"
+/>

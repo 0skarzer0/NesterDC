@@ -1,0 +1,19 @@
+<sprite>
+	<images>
+		<image name="01" file="01.bmp"/>
+		<image name="02" file="02.bmp"/>
+		<image name="03" file="03.bmp"/>
+		<image name="04" file="04.bmp"/>
+		<image name="05" file="05.bmp"/>
+	</images>
+	<animations>
+		<animation name="run">
+			<frame image="01" duration="7"/>
+			<frame image="02" duration="7"/>
+			<frame image="03" duration="7"/>
+			<frame image="04" duration="7"/>
+			<frame image="05" duration="7"/>
+			<frame image="03" duration="7"/>
+		</animation>
+	</animations>
+</sprite>
